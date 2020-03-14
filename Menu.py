@@ -7,6 +7,7 @@ def print_menu():
     print('[2] Display Catalog')
     print('[3] Show Out of Stock Items')
     print('[4] Update Stock Manually')
+    print('[5] Show Value of the Stock')
 
     print('[x] Exit')
 

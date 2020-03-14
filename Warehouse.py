@@ -90,6 +90,14 @@ def display_catalog():
     
     print('-' * 80)
 
+def print_stock_value():
+    total = 0
+    for item in catalog:
+        total += (item.stock * item.price)
+    print("Warehouse Value: $" + str(total))
+
+
+
 
 def display_no_stock():
     print_header(' Item Out of Stock ')
