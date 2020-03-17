@@ -11,6 +11,8 @@ Functionality:
     -Display Catalog (items out of stock)
     -Update the stock of a selected item
 
+    - Print Different Categories
+
 """
 from Menu import print_menu, print_header
 from Item import Item
@@ -115,6 +117,37 @@ def display_no_stock():
 
     print('-' * 80)
 
+def remove_item():
+    # show the list of items
+    # ask the user to choose an id to remove
+    # validate the id
+    # remove the item
+
+    display_catalog()
+    selected = int(input('Please select the ID to remove  '))
+
+    found = False
+    for item in catalog:
+        if(item.id == selected):
+            delete_stock = input(" Are you sure you want to remove " + item.title + " from inventory? ")
+            found = True
+            if("yes"):
+                catalog.remove(item)
+            
+            
+    if(found == False):
+        print('** Error: Selected ID Does not exist, try again')
+
+def categories():
+    print_header(" Categories In Warehouse")
+    already_printed = []
+    for item in catalog:
+        if item.id > 0 and not item.category in already_printed:
+            print(item.category)
+            already_printed.append(item.category)
+
+
+
 def update_stock():
     # show all the items
     # ask the user to choose an id
@@ -127,9 +160,9 @@ def update_stock():
     found = False
     for item in catalog:
         if(item.id == selected):
+            print(' ID is found')
             new_stock = input(' Please input new stock value: ')
             item.stock = int(new_stock)
-            print(' Id is correct ')
             found = True
             print(' Updated! ')
     if(found == False):
@@ -158,5 +191,10 @@ while(opc != 'x'):
         save_catalog()
     elif(opc == '5'):
         print_stock_value()
+    elif(opc == '6'):
+        remove_item()
+        save_catalog()
+    elif(opc == '7'):
+        categories()
 
     input('Press Enter to Continue... ')

@@ -4,10 +4,12 @@ def print_menu():
     print('-' * 80)
 
     print('[1] Register New Item')
-    print('[2] Display Catalog')
+    print('[2] Display Inventory')
     print('[3] Show Out of Stock Items')
     print('[4] Update Stock Manually')
-    print('[5] Show Value of the Stock')
+    print('[5] Show the Total Value of the Inventory')
+    print('[6] Remove Items from Inventory')
+    print('[7] Display Categories')
 
     print('[x] Exit')
 
